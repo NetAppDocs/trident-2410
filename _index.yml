@@ -41,11 +41,11 @@ indexpage:
           url: /trident-use/vol-operations.html
     - title: Advanced data management and protection
       links:
-        - title: Advanced data protection with Trident protect
+        - title: Advanced data protection with Trident Protect
           url: /trident-protect/learn-about-trident-protect.html
-        - title: Deploy Trident protect
+        - title: Deploy Trident Protect
           url: /trident-protect/trident-protect-installation.html
-        - title: Upgrade Trident protect
+        - title: Upgrade Trident Protect
           url: /trident-protect/trident-protect-upgrade.html
     - title: Demos & tutorials
       links:
