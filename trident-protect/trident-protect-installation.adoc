@@ -2,9 +2,9 @@
 sidebar: sidebar
 permalink: trident-protect/trident-protect-installation.html
 keywords: install, trident, protect, requirements, registry
-summary: If your environment meets the requirements, you can follow these steps to install Trident protect.
+summary: If your environment meets the requirements, you can follow these steps to install Trident Protect.
 ---
-= Install and configure Trident protect
+= Install and configure Trident Protect
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -12,15 +12,15 @@ summary: If your environment meets the requirements, you can follow these steps 
 :imagesdir: ../media/
 
 [.lead]
-If your environment meets the requirements for Trident protect, you can follow these steps to install Trident protect on your cluster. You can obtain Trident protect from NetApp, or install it from your own private registry. Installing from a private registry is helpful if your cluster cannot access the Internet.
+If your environment meets the requirements for Trident Protect, you can follow these steps to install Trident Protect on your cluster. You can obtain Trident Protect from NetApp, or install it from your own private registry. Installing from a private registry is helpful if your cluster cannot access the Internet.
 
-NOTE: By default, Trident protect collects support information that helps with any NetApp support cases that you might open, including logs, metrics, and topology information about clusters and managed applications. Trident protect sends these support bundles to NetApp on a daily schedule. You can optionally disable this support bundle collection when you install Trident protect. You can manually link:trident-protect-generate-support-bundle.html[generate a support bundle] at any time.
+NOTE: By default, Trident Protect collects support information that helps with any NetApp support cases that you might open, including logs, metrics, and topology information about clusters and managed applications. Trident Protect sends these support bundles to NetApp on a daily schedule. You can optionally disable this support bundle collection when you install Trident Protect. You can manually link:trident-protect-generate-support-bundle.html[generate a support bundle] at any time.
 
-== Install Trident protect
+== Install Trident Protect
 
 [role="tabbed-block"]
 ====
-.Install Trident protect from NetApp
+.Install Trident Protect from NetApp
 --
 .Steps
 . Add the Trident Helm repository:
@@ -35,25 +35,25 @@ helm repo add netapp-trident-protect https://netapp.github.io/trident-protect-he
 ----
 helm install trident-protect-crds netapp-trident-protect/trident-protect-crds --version 100.2410.1 --create-namespace --namespace trident-protect
 ----
-. Use Helm to install Trident protect using one of the following commands. Replace `<name_of_cluster>` with a cluster name, which will be assigned to the cluster and used to identify the cluster's backups and snapshots:
+. Use Helm to install Trident Protect using one of the following commands. Replace `<name_of_cluster>` with a cluster name, which will be assigned to the cluster and used to identify the cluster's backups and snapshots:
 +
-* Install Trident protect normally:
+* Install Trident Protect normally:
 +
 [source,console]
 ----
 helm install trident-protect netapp-trident-protect/trident-protect --set clusterName=<name_of_cluster> --version 100.2410.1 --create-namespace --namespace trident-protect
 ----
 +
-* Install Trident protect and disable the scheduled daily Trident protect AutoSupport support bundle uploads:
+* Install Trident protect and disable the scheduled daily Trident Protect AutoSupport support bundle uploads:
 +
 [source,console]
 ----
 helm install trident-protect netapp-trident-protect/trident-protect --set autoSupport.enabled=false --set clusterName=<name_of_cluster> --version 100.2410.1 --create-namespace --namespace trident-protect
 ----
 --
-.Install Trident protect from a private registry
+.Install Trident Protect from a private registry
 --
-You can install Trident protect from a private image registry if your Kubernetes cluster is unable to access the Internet. In these examples, replace values in brackets with information from your environment:
+You can install Trident Protect from a private image registry if your Kubernetes cluster is unable to access the Internet. In these examples, replace values in brackets with information from your environment:
 
 .Steps
 . Pull the following images to your local machine, update the tags, and then push them to your private registry:
@@ -89,7 +89,7 @@ docker tag netapp/controller:24.10.1 <private-registry-url>/controller:24.10.1
 docker push <private-registry-url>/controller:24.10.1
 ----
 
-. Create the Trident protect system namespace:
+. Create the Trident Protect system namespace:
 +
 [source,console]
 ----
@@ -115,7 +115,7 @@ kubectl create secret docker-registry regcred --docker-username=<registry-userna
 helm repo add netapp-trident-protect https://netapp.github.io/trident-protect-helm-chart
 ----
 
-. Create a file named `protectValues.yaml`. Ensure that it contains the following Trident protect settings:
+. Create a file named `protectValues.yaml`. Ensure that it contains the following Trident Protect settings:
 +
 [source,yaml]
 ----
@@ -138,22 +138,22 @@ webhooksCleanup:
     - name: regcred
 ----
 
-. Install the Trident protect CRDs:
+. Install the Trident Protect CRDs:
 +
 [source,console]
 ----
 helm install trident-protect-crds netapp-trident-protect/trident-protect-crds --version 100.2410.1 --create-namespace --namespace trident-protect
 ----
-. Use Helm to install Trident protect using one of the following commands. Replace `<name_of_cluster>` with a cluster name, which will be assigned to the cluster and used to identify the cluster's backups and snapshots: 
+. Use Helm to install Trident Protect using one of the following commands. Replace `<name_of_cluster>` with a cluster name, which will be assigned to the cluster and used to identify the cluster's backups and snapshots: 
 +
-* Install Trident protect normally:
+* Install Trident Protect normally:
 +
 [source,console]
 ----
 helm install trident-protect netapp-trident-protect/trident-protect --set clusterName=<name_of_cluster> --version 100.2410.1 --create-namespace --namespace trident-protect -f protectValues.yaml
 ----
 +
-* Install Trident protect and disable the scheduled daily Trident protect AutoSupport support bundle uploads:
+* Install Trident Protect and disable the scheduled daily Trident Protect AutoSupport support bundle uploads:
 +
 [source,console]
 ----
@@ -162,13 +162,13 @@ helm install trident-protect netapp-trident-protect/trident-protect --set autoSu
 --
 ====
 
-== Specify Trident protect container resource limits
-You can use a configuration file to specify resource limits for Trident protect containers after you install Trident protect. Setting resource limits enables you to control how much of the cluster's resources are consumed by Trident protect operations.
+== Specify Trident Protect container resource limits
+You can use a configuration file to specify resource limits for Trident Protect containers after you install Trident Protect. Setting resource limits enables you to control how much of the cluster's resources are consumed by Trident Protect operations.
 
 .Steps
 
 . Create a file named `resourceLimits.yaml`.
-. Populate the file with resource limit options for Trident protect containers according to the needs of your environment. 
+. Populate the file with resource limit options for Trident Protect containers according to the needs of your environment. 
 +
 The following example configuration file shows the available settings and contains the default vaules for each resource limit:
 +
