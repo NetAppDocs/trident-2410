@@ -2,9 +2,9 @@
 sidebar: sidebar
 permalink: trident-protect/trident-protect-appvault-custom-resources.html
 keywords: trident. appvault, custom, protect, kubernetes
-summary: The bucket custom resource (CR) for Trident protect is known as an AppVault. AppVaults are the declarative Kubernetes workflow representation of a storage bucket. 
+summary: The bucket custom resource (CR) for Trident Protect is known as an AppVault. AppVaults are the declarative Kubernetes workflow representation of a storage bucket. 
 ---
-= Use Trident protect AppVault objects to manage buckets
+= Use Trident Protect AppVault objects to manage buckets
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -12,7 +12,7 @@ summary: The bucket custom resource (CR) for Trident protect is known as an AppV
 :imagesdir: ../media/
 
 [.lead]
-The bucket custom resource (CR) for Trident protect is known as an AppVault. AppVault objects are the declarative Kubernetes workflow representation of a storage bucket. An AppVault CR contains the configurations necessary for a bucket to be used in protection operations, such as backups, snapshots, restore operations, and SnapMirror replication. Only administrators can create AppVaults.
+The bucket custom resource (CR) for Trident Protect is known as an AppVault. AppVault objects are the declarative Kubernetes workflow representation of a storage bucket. An AppVault CR contains the configurations necessary for a bucket to be used in protection operations, such as backups, snapshots, restore operations, and SnapMirror replication. Only administrators can create AppVaults.
 
 == Key generation and AppVault definition examples
 When defining an AppVault CR, you need to include credentials to access the resources hosted by the provider. How you generate the keys for the credentials will differ depending on the provider. The following are command line key generation examples for several providers, followed by example AppVault definitions for each provider.
@@ -241,7 +241,7 @@ spec:
 ====
 // end tabbed block
 
-=== AppVault creation examples using the Trident protect CLI
+=== AppVault creation examples using the Trident Protect CLI
 You can use the following CLI command examples to create AppVault CRs for each provider.
 
 
@@ -333,7 +333,7 @@ The `providerType` and `providerConfig` keys in an AppVault CR require specific 
 ////
 
 == Use the AppVault browser to view AppVault information
-You can use the Trident protect CLI plugin to view information about AppVault objects that have been created on the cluster.
+You can use the Trident Protect CLI plugin to view information about AppVault objects that have been created on the cluster.
 
 .Steps
 
@@ -364,7 +364,7 @@ tridentctl-protect get appvaultcontent gcp-vault --show-resources all
 
 . Optionally, to see the AppVaultPath for each resource, use the flag `--show-paths`.
 +
-The cluster name in the first column of the table is only available if a cluster name was specified in the Trident protect helm installation. For example: `--set clusterName=production1`. 
+The cluster name in the first column of the table is only available if a cluster name was specified in the Trident Protect helm installation. For example: `--set clusterName=production1`. 
 
 == Remove an AppVault
 You can remove an AppVault object at any time.
@@ -386,7 +386,7 @@ kubectl delete appvault <appvault_name> -n trident-protect
 ----
 
 --
-.Remove an AppVault using the Trident protect CLI
+.Remove an AppVault using the Trident Protect CLI
 --
 . Remove the AppVault object, replacing `appvault_name` with the name of the AppVault object to remove:
 +
@@ -411,7 +411,7 @@ Key generation example:
 kubectl create secret generic gcp-creds --from-file=credentials=<mycreds-file.json> -n trident-protect
 ----
 
-The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident protect CLI command that generates the AppVault CR for you:
+The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident Protect CLI command that generates the AppVault CR for you:
 
 // begin tabbed block
 [role="tabbed-block"]
@@ -457,7 +457,7 @@ Key generation example:
 kubectl create secret generic -n trident-protect s3 --from-literal=accessKeyID=<secret-name> --from-literal=secretAccessKey=<generic-s3-trident-protect-src-bucket-secret>
 ----
 
-The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident protect CLI command that generates the AppVault CR for you:
+The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident Protect CLI command that generates the AppVault CR for you:
 
 // begin tabbed block
 [role="tabbed-block"]
@@ -507,7 +507,7 @@ Key generation example:
 kubectl create secret generic <secret-name> --from-literal=accountKey=<secret-name> -n trident-protect
 ----
 
-The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident protect CLI command that generates the AppVault CR for you:
+The following AppVault definition examples are provided as a CR that you can use and modify, or an example Trident Protect CLI command that generates the AppVault CR for you:
 
 // begin tabbed block
 [role="tabbed-block"]
