@@ -38,7 +38,7 @@ WARNING: The `tridentctl` binary for Linux that is provided in the installer zip
 ** Disaster recovery
 ** Application mobility
 +
-link:./trident-protect/learn-about-trident-protect.html[Learn more about Trident protect].
+link:./trident-protect/learn-about-trident-protect.html[Learn more about Trident Protect].
 * Added a new flag `--k8s_api_qps` to installers to set the QPS value used by Trident to communicate with the Kubernetes API server.
 * Added `--node-prep` flag to installers for automatic management of storage protocol dependencies on Kubernetes cluster nodes. Tested and verified compatibility with Amazon Linux 2023 iSCSI storage protocol
 * Added support for force detach for ONTAP-NAS-Economy volumes during Non-Graceful Node Shutdown scenarios.
@@ -84,7 +84,7 @@ Beginning with the 24.10 release, Astra Trident is rebranded to Trident (Netapp 
 * Added Bottlerocket support for NFS volumes.
 * Added technical preview support for Google Cloud NetApp Volumes. 
 
-//=== Trident protect
+//=== Trident Protect
 //* Added KubeVirt support for SnapMirror. link:https://kubevirt.io/[Learn more about KubeVirt^].
 
 ==== Kubernetes
