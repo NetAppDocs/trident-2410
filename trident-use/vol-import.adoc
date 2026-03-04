@@ -11,7 +11,7 @@ summary: You can import existing storage volumes as a Kubernetes PV using `tride
 :imagesdir: ../media/
 
 [.lead]
-You can import existing storage volumes as a Kubernetes PV using `tridentctl import`or by creating a Persistent Volume Claim (PVC) with Trident import annotations.
+You can import existing storage volumes as a Kubernetes PV using `tridentctl import` or by creating a Persistent Volume Claim (PVC) with Trident import annotations.
 
 == Overview and considerations
 
@@ -67,7 +67,7 @@ spec:
   storageClassName: my_storage_class
 ----
 +
-NOTE: Include only the required parameters. Additional parameters such as PV name or volume size can cause the import command to fail. 
+NOTE: Include only the required parameters. Additional parameters such as PV name or volume size can cause the import command to fail.  
 
 . Use the `tridentctl import` command to specify the name of the Trident backend containing the volume and the name that uniquely identifies the volume on the storage (for example: ONTAP FlexVol, Element Volume, Cloud Volumes Service path). The `-f` argument is required to specify the path to the PVC  file.
 +
@@ -122,6 +122,7 @@ Trident will automatically import the volume and bind it to the PVC.
 ====
 
 //end-tabbed area
+
 == Examples
 Review the following volume import examples for supported drivers.
 
@@ -140,6 +141,40 @@ Each volume created with the `ontap-nas` driver is a FlexVol on the ONTAP cluste
 The following examples show how to import managed and unmanaged volumes using `tridentctl`. 
 
 // start tabbed area
+
+[role="tabbed-block"]
+====
+
+.Managed volume
+--
+The following example imports a volume named `managed_volume` on a backend named `ontap_nas`:
+----
+tridentctl import volume ontap_nas managed_volume -f <path-to-pvc-file>
+
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+|                   NAME                   |  SIZE   | STORAGE CLASS | PROTOCOL |             BACKEND UUID             | STATE  | MANAGED |
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+| pvc-bf5ad463-afbb-11e9-8d9f-5254004dfdb7 | 1.0 GiB | standard      | file     | c5a6f6a4-b052-423b-80d4-8fb491a14a22 | online | true    |
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+----
+--
+
+.Unmanaged volume
+--
+When using the `--no-manage` argument, Trident does not rename the volume.
+
+The following example imports `unmanaged_volume` on the `ontap_nas` backend:
+----
+tridentctl import volume nas_blog unmanaged_volume -f <path-to-pvc-file> --no-manage
+
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+|                   NAME                   |  SIZE   | STORAGE CLASS | PROTOCOL |             BACKEND UUID             | STATE  | MANAGED |
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+| pvc-df07d542-afbc-11e9-8d9f-5254004dfdb7 | 1.0 GiB | standard      | file     | c5a6f6a4-b052-423b-80d4-8fb491a14a22 | online | false   |
++------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
+----
+--
+====
 
 // end tabbed area
 
@@ -201,13 +236,11 @@ spec:
 ====
 
 === ONTAP SAN
-
 Trident supports volume import using the `ontap-san` and `ontap-san-economy` drivers.
 
 Trident can import ONTAP SAN FlexVols that contain a single LUN. This is consistent with the `ontap-san` driver, which creates a FlexVol for each PVC and a LUN within the FlexVol. Trident imports the FlexVol and associates it with the PVC definition. 
 
-.ONTAP SAN examples
-The following examples show how to import managed and unmanaged volumes:
+The following examples show how to import managed and unmanaged volumes: 
 
 // start tabbed area
 
@@ -251,12 +284,10 @@ image:./san-import-igroup.png[Image of LUNS mapped to iqn and cluster iqn.]
 --
 ====
 
-
 === Element
 Trident supports NetApp Element software and NetApp HCI volume import using the `solidfire-san` driver. 
 
 NOTE: The Element driver supports duplicate volume names. However, Trident returns an error if there are duplicate volume names. As a workaround, clone the volume, provide a unique volume name, and import the cloned volume.
-
 
 The following example imports an `element-managed` volume on backend `element_default`.
 ----
@@ -292,7 +323,6 @@ Trident supports volume import using the `azure-netapp-files` driver.
 
 NOTE: To import an Azure NetApp Files volume, identify the volume by its volume path. The volume path is the portion of the volume's export path after the `:/`. For example, if the mount path is `10.0.0.2:/importvol1`, the volume path is `importvol1`.
 
-
 The following example imports an `azure-netapp-files` volume on backend `azurenetappfiles_40517` with the volume path `importvol1`. 
 ----
 tridentctl import volume azurenetappfiles_40517 importvol1 -f <path-to-pvc-file> -n trident
@@ -303,4 +333,3 @@ tridentctl import volume azurenetappfiles_40517 importvol1 -f <path-to-pvc-file>
 | pvc-0ee95d60-fd5c-448d-b505-b72901b3a4ab | 100 GiB | anf-storage   | file     | 1c01274f-d94b-44a3-98a3-04c953c9a51e | online | true    |
 +------------------------------------------+---------+---------------+----------+--------------------------------------+--------+---------+
 ----
-
