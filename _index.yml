@@ -1,7 +1,9 @@
 indexpage:
   lead: Trident is an open source storage provisioner and orchestrator maintained by NetApp. It enables you to create storage volumes for containerized applications managed by Docker and Kubernetes.
+  summary: Trident is an open source storage provisioner and orchestrator maintained by NetApp. It enables you to create storage volumes for containerized applications managed by Docker and Kubernetes. **Read the Release notes for critical information about upgrading to Trident 24.10.**
+  keywords: trident, storage provisioner, docker, kubernetes, containerized applications
   tiles: 
-    - title: Release notes 
+    - title: Trident 24.10 documentation
       links:
         - title: What’s new
           url: trident-rn.html   
