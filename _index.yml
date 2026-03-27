@@ -5,8 +5,6 @@ indexpage:
       links:
         - title: What’s new
           url: trident-rn.html   
-        - title: Earlier versions
-          url: /earlier-versions.html   
     - title: Get started
       links:
         - title: Learn about Trident
