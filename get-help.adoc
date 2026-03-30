@@ -27,7 +27,7 @@ Self-support:: Trident documentation is available for months 25 - 36 from the re
 |===
 |Version | Full support | Limited support | Self-support
 
-a|link:https://docs.netapp.com/us-en/trident/index.html[24.10^] |-- | October 2026 | October 2027
+a|link:https://docs.netapp.com/us-en/trident-2410/index.html[24.10^] |-- | October 2026 | October 2027
 a|link:https://docs.netapp.com/us-en/trident-2406/index.html[24.06^] |--| June 2026 | June 2027
 a|link:https://docs.netapp.com/us-en/trident-2402/index.html[24.02^] |-- | February 2026 | February 2027
 a|link:https://docs.netapp.com/us-en/trident-2310/index.html[23.10^] |-- | -- | October 2026
@@ -37,7 +37,7 @@ a|link:https://docs.netapp.com/us-en/trident-2301/index.html[23.01^] |-- | -- | 
 
 |===
 
-NOTE: For the latest Trident version support schedule, refer to the https://docs.netapp.com/us-en/trident/get-help.html#trident-support-lifecycle[Support lifecycle page^]
+NOTE: For the latest Trident version support schedule, refer to the https://docs.netapp.com/us-en/trident/get-help.html#trident-support-lifecycle[Support lifecycle page^].
 
 == Self-support
 For a comprehensive list of troubleshooting articles, Refer to https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Trident_Kubernetes[NetApp Knowledgebase (login required)^].
