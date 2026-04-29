@@ -63,7 +63,7 @@ The Trident installer creates a Kubernetes ClusterRole, which has specific acces
 
 === Can I locally generate the exact manifest files Trident uses for installation?
 
-You can locally generate and modify the exact manifest files Trident uses for installation, if needed. Refer to link:trident-get-started/kubernetes-customize-deploy-tridentctl.html[Customize tridentctl installation^].
+You can locally generate and modify the exact manifest files Trident uses for installation, if needed. Refer to link:trident-install/kubernetes-customize-deploy-tridentctl.html[Customize tridentctl installation^].
 
 === Can I share the same ONTAP backend SVM for two separate Trident instances for two separate Kubernetes clusters?
 
