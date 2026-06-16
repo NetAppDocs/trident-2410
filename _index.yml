@@ -55,7 +55,7 @@ indexpage:
     - title: Blogs & community
       links:
         - title: Kubernetes Hub
-          url: https://www.netapp.com/google-cloud/netapp-volumes/
+          url: https://www.netapp.com/console/
         - title: NetApp.io
           url: https://netapp.io/
         - title: Discord

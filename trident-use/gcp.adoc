@@ -48,8 +48,6 @@ Trident can create Cloud Volumes Service volumes in one of two link:https://docs
 
 .What you'll need
 
-To configure and use the https://www.netapp.com/google-cloud/netapp-volumes/[Cloud Volumes Service for Google Cloud^] backend, you need the following:
-
 * A Google Cloud account configured with NetApp Cloud Volumes Service
 * Project number of your Google Cloud account
 * Google Cloud service account with the `netappcloudvolumes.admin` role
