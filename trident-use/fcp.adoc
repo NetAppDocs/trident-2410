@@ -115,8 +115,8 @@ Create a Trident backend for `ontap-san` driver and `fcp` as the sanType.
  
 Refer to:
 
-* link:..trident-use/ontap-san-prep.html[Prepare to configure backend with ONTAP SAN drivers]
-* link:..trident-use/ontap-san-examples.html[ONTAP SAN configuration options and examples^]
+* link:ontap-san-prep.html[Prepare to configure backend with ONTAP SAN drivers]
+* link:ontap-san-examples.html[ONTAP SAN configuration options and examples^]
 
 
 .Backend configuration example with FC
@@ -141,7 +141,7 @@ spec:
 
 For more information, refer to:
 
-* link:..trident-docker/stor-config.html[Storage configuration options^]
+* link:../trident-docker/stor-config.html[Storage configuration options^]
 
 .Storage class example
 
